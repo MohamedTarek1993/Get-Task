@@ -1,10 +1,10 @@
 <template>
-  <div @dblclick="$emit('toggle-reminder' ,task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
-    <h3>{{ task.text }} <i @click="$emit('delete-task' ,task.id)" class="fas fa-times"></i></h3>
+  <div  @dblclick="$emit('toggle-reminder', task.id)"
+    :class="[task.reminder ? 'reminder' : '', 'task']">
+    <h3>{{ task.text }} <i @click="$emit('delete-task' ,task.id)" class="bi bi-trash"></i></h3>
     <p>{{ task.day }}</p>
   </div>
 </template>
-
 <script>
 export default {
   name: "task",
@@ -18,7 +18,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.fas {
+.bi-trash{
   color: red;
 }
 .task {

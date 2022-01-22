@@ -6,54 +6,37 @@
         title="Task123"
         :showAddTask="showAddTask"
       />
-      <div v-if="showAddTask">
-        <AddTask @add-task="addTask" />
-      </div>
-      <Tasks
-        @delete-task="deleteTask"
-        @toggle-reminder="toggleReminder"
-        :tasks="tasks"
-      />
+    <router-view :showAddTask="showAddTask"></router-view>
+         <Footer />
     </div>
+
   </section>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Tasks from "./components/Tasks.vue";
-import AddTask from "./components/AddTask.vue";
+import Footer from "./components/Footer.vue";
+
 export default {
   name: "App",
   components: {
     Header,
-    Tasks,
-    AddTask,
+    Footer,
+   
   },
   data() {
     return {
-      tasks: [],
       showAddTask: false,
     };
   },
-  created() {
-    this.tasks = [];
-  },
+
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
-    addTask(task) {
-      this.tasks = [...this.tasks, task];
-    },
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
-    toggleReminder(id) {
-      this.tasks = this.task.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
-      );
-    },
+  
   },
+ 
 };
 </script>
 
